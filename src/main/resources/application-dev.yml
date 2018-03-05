@@ -1,0 +1,24 @@
+server:
+  port: 8080
+  tomcat:
+    uri-encoding: utf-8
+  context-path: /
+  #上传文件路径 建议文件夹名称叫做image 或 img 下面资源映射会根据文件夹名称更改链接地址
+  uploadPath: E:\\filebase\\img
+  #上传文件地址
+  filebase: http://192.168.0.9:8080/img/
+spring:
+  resources:
+    static-locations: file:${server.uploadPath}
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/demo?characterEncoding=UTF-8
+    username: haiyang0203
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+    minIdle: 2
+    maxAction: 20
+    maxWaitMillis: 8000
